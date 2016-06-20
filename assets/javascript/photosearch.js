@@ -30,21 +30,22 @@ $(document).on('ready', function() {
 			$.ajax({
 				url: queryURL,
 				method: 'GET'
-			}).done(function(response) {
-				var photos = response.photos.photo;
-				var photoURLS = [];
-				for (i in photos) {
-					if (photos[i].ispublic === 1) {
-						var farmID = photos[i].farm;
-						var serverID = photos[i].server;
-						var ID = photos[i].id;
-						var secret = photos[i].secret;
-						var size = 'n';
-						var URL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + ID + '_' + secret + '_' + size +'.jpg'
-						display.showPhoto(URL);
-					}
+			}).done(display.ajaxDone);
+		},
+		ajaxDone: function(response) {
+			var photos = response.photos.photo;
+			var photoURLS = [];
+			for (i in photos) {
+				if (photos[i].ispublic === 1) {
+					var farmID = photos[i].farm;
+					var serverID = photos[i].server;
+					var ID = photos[i].id;
+					var secret = photos[i].secret;
+					var size = 'n';
+					var URL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + ID + '_' + secret + '_' + size +'.jpg'
+					display.showPhoto(URL);
 				}
-			});
+			}
 		},
 		showPhoto: function(URL) {
 			$img = $('<img>').attr('src', URL);
