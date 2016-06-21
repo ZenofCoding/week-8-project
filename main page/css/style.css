@@ -30,3 +30,19 @@ h2 {
 	padding: 2vw;
 }
 
+#logo{
+	width: 200px;
+	height: 100px;
+	
+}
+
+.navbar-right{
+	margin-top: 20px;
+	margin-right: 20px;
+}
+
+.navbar-brand{
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
