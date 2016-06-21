@@ -12,9 +12,9 @@ p {
 	position: relative;
 }
 
-#image {
-	background-image: url('../images/dog.jpg');
-}
+/*#image {
+	background-image: url('https://farm8.staticflickr.com/7116/27719688611_c7d5ae863a_n.jpg');
+}*/
 
 .top {
 	top: 0;

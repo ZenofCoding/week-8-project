@@ -19,11 +19,12 @@ $(document).on('ready', function() {
 			display.queryString(value);
 		},
 		apiKey: '96ded4dd9f53989e6fb829fa7a5e6b9e',
-		searchResults: 5,
+		perPage: 10,
+		page: 2,
 		queryURL:'',
 		queryString: function(value) {
 			var value = encodeURIComponent(value).replace(/%20/g, '+');
-			queryURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + display.apiKey + '&tags=' + value + '&per_page=' + display.searchResults + '&format=json&nojsoncallback=1';
+			queryURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + display.apiKey + '&tags=' + value + '&per_page=' + display.perPage + '&page=' + display.page +'&format=json&nojsoncallback=1';
 			display.ajaxCall();
 		},
 		ajaxCall: function() {
@@ -33,6 +34,7 @@ $(document).on('ready', function() {
 			}).done(display.ajaxDone);
 		},
 		ajaxDone: function(response) {
+			console.log(response);
 			var photos = response.photos.photo;
 			var photoURLS = [];
 			for (i in photos) {
