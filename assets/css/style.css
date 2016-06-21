@@ -96,9 +96,9 @@ a:hover {
 
 .bold {
 	font-weight: bold;
-	color: #5a5a5a;
 }
 
+/* Main panels */
 .panel-body {
 	background-color: white;
 	border-top-right-radius: 3px;
@@ -108,4 +108,31 @@ a:hover {
   border-color: #1d1d1d;
 }
 
+/* Button Groups */
+.btn-group {
+	border-color: #1d1d1d;
+}
 
+.btn-group>.btn:first-child, .btn-group>.btn:last-child {
+	border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn {
+	font-size: 1.5vw;
+}
+
+.btn.disabled {
+	background-color: #28292d;
+	border-color: #1d1d1d;
+}
+
+.btn-default.active {
+	background-color: #33343b;
+	opacity: 1;
+}
+
+#steps .panel-body {
+	border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
