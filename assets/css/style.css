@@ -1,36 +1,111 @@
-* {
-	box-sizing: border-box;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #1d1d1d;
 }
 
-.panel-primary>.panel-heading {
-background-color: #ff00ff;
-border-color: #ff00ff;
+hr {
+	margin-top: 0;
+	margin-bottom: 10px;
+	border-color: #e9e9e9;
 }
 
-.panel-primary {
-border-color: #ff00ff;
+p {
+	color: #5b5b6e;
 }
 
-
-.panel-danger>.panel-heading {
-background-color: #3333ff;
-border-color: #3333ff;
+a {
+	margin: 0;
+	padding: 0;
+	color: #a6a6a6;
 }
 
-.panel-danger{
-border-color: #3333ff;
+a:hover {
+	text-decoration: none;
+	background: none;
+}
+
+/* Navbar */
+
+.navbar-nav>li>i {
+	padding: 10px;
+}
+
+.navbar-right>li>a>i {
+	padding: 4px;
+}
+
+.navbar-nav>li>a {
+	margin: 0;
+	padding: 0;
+}
+
+.navbar-nav>li>p {
+	margin: 0;
+	padding: 0;
+	color: #9c9c9c;
+}
+
+.navbar-nav>li>p:first-child {
+	padding-top: 5px;
+}
+
+.create {
+	padding: 4px 0;
+	padding-right: 15px;
+	color: #a6a6a6;
+}
+
+.create:hover {
+	color: #ffffff;
+}
+
+.create>i {
+	vertical-align: middle;
+}
+
+.create-text {
+	vertical-align: middle;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* Navbar toggle */
+.navbar-toggle {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #1f2125;
+}
+
+/* Fixes navbar hiding content issue */
+.navbar-fixed-top {
+	position: relative;
+	background: #1f2125;
+}
+
+/* Fixes padding around logo */
+.navbar-brand {
+	padding: 5px;
+	padding-left: 15px;
+}
+
+.bold {
+	font-weight: bold;
+	color: #5a5a5a;
 }
 
 .panel-body {
 	background-color: white;
 	border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-color: #1d1d1d;
 }
 
-h2 {
-	text-align: center;
-	padding: 2vw;
-}
 
