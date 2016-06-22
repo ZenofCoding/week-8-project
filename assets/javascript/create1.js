@@ -1,10 +1,8 @@
 $(document).on('ready', function() {
 	// When joke category is clicked
-	$(document).on('click', '#steps a', function(ev) {
-		ev.preventDefault();
-		ev.stopPropagation();
+	$(document).on('click', '#step1 a', function() {
 		// Save this
-		$this = this;
+		$this = $(this);
 		// Get input
 		display.input($this);
 		return false;
@@ -19,8 +17,8 @@ $(document).on('ready', function() {
 		firstPage: null,
 		input: function($this) {
 			// Get input and selection
-			display.value = $($this).attr('data-search');
-			display.selection = $($this).attr('data-type');
+			display.value = $this.attr('data-search');
+			display.selection = $this.attr('data-type');
 			// Clear before and after values if new joke selection
 			if (display.selection === 'joke') {
 				display.before = null;
