@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	
+
+</head>
+<body>
+
+<div id="connectedViewers"></div>
+
+		<script>
+
+				//Link to Firebase
+				var viewerData = new Firebase("https://fleddit.firebaseio.com/");
+
+
+				// Link to Firebase Database for viewer tracking
+				var connectedData 	= new Firebase("https://fleddit.firebaseio.com/viewers");
+				var userData 		= connectedData.push();
+
+				// counter for views
+				var viewCounter = 0;
+
+				// --------------------------------------------------------------
+
+				// Add ourselves to presence list when online.
+				var presenceRef = new Firebase("https://fleddit.firebaseio.com/.info/connected");
+				presenceRef.on("value", function(snapshot) {
+				  if (snapshot.val()) {
+
+				    // Remove ourselves when we disconnect.
+				    userData.onDisconnect().remove();
+				    userData.set(true);
+				  }
+				});
+
+				// Number of online users is the number of objects in the presence list.
+				connectedData.on("value", function(snapshot) {
+
+					// Display the viewer count in the html
+					$("#connectedViewers").html(snapshot.numChildren());
+				  	console.log("# of online users = " + snapshot.numChildren());
+
+				});
+
+		</script>
+</html>
