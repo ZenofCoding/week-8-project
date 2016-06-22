@@ -9,9 +9,7 @@
 				var userData 		= connectedData.push();
 
 				// counter for views
-				var viewCounter = 0;
-
-				// --------------------------------------------------------------
+				var monthlyData 	= new Firebase("https://fleddit.firebaseio.com/monthlyUsers");
 
 				// Add ourselves to presence list when online.
 				var presenceRef = new Firebase("https://fleddit.firebaseio.com/.info/connected");
@@ -31,5 +29,9 @@
 					// Display the viewer count in the html
 					$("#online-users").html(snapshot.numChildren());
 				  	console.log("# of online users = " + snapshot.numChildren());
+				  });
 
+				monthlyData.on("value", function(snapshot) {
+					$("#monthly-users").html(snapshot.numChildren());
+				  	console.log("# of monthly users = " + snapshot.numChildren());
 				});
