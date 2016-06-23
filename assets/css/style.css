@@ -24,45 +24,65 @@ a {
 a:hover {
 	text-decoration: none;
 	background: none;
+
 }
 
 /* Navbar */
 
+
+
 .navbar-nav>li>i {
 	padding: 10px;
+	color:#FFFFFF  
+
+
 }
 
 .navbar-right>li>a>i {
 	padding: 4px;
+
 }
 
 .navbar-nav>li>a {
 	margin: 0;
-	padding: 0;
+ 	padding: 0;
+  color:#FFFFFF  	
+
+
 }
 
 .navbar-nav>li>p {
 	margin: 0;
 	padding: 0;
-	color: #9c9c9c;
+	color:#FFFFFF  ;
+
 }
 
 .navbar-nav>li>p:first-child {
 	padding-top: 5px;
+	color:#43ADF3  ;
+
 }
 
 .create {
 	padding: 4px 0;
 	padding-right: 15px;
-	color: #a6a6a6;
+	color: #FFFFFF;
+
+
 }
 
 .create:hover {
 	color: #ffffff;
+	/* Add background color*/
+		background-color:#085FD6;
+	
 }
 
 .create>i {
 	vertical-align: middle;
+	color:#ffffff;
+
 }
 
 .create-text {
@@ -76,16 +96,19 @@ a:hover {
 	border: none;
 	margin: 0;
 	padding: 0;
+
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 	background-color: #1f2125;
+
 }
 
 /* Fixes navbar hiding content issue */
 .navbar-fixed-top {
 	position: relative;
-	background: #1f2125;
+	/*Added background color*/
+	background:#2E4053  ;
 }
 
 /* Fixes padding around logo */
@@ -108,14 +131,19 @@ a:hover {
   border-color: #1d1d1d;
 }
 
+
+
 /* Button Groups */
 .btn-group {
 	border-color: #1d1d1d;
+
 }
 
 .btn-group>.btn:first-child, #step1 .btn-group>.btn:last-child {
 	border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+ /* Add background color*/
+	background-color: #0876BF;
 }
 
 .btn {
@@ -123,7 +151,7 @@ a:hover {
 }
 
 .btn.disabled {
-	background-color: #28292d;
+	background-color:#20BEF0;
 	border-color: #1d1d1d;
 }
 
@@ -185,8 +213,10 @@ h1 {
 }
 
 .pagination>li>a:hover, .pagination>li>a:active, .pagination>li>a:focus {
-	background: #888888;
+	/*changed background*/
+	background:#085FD6;
 	border-color: #888888;
+
 }
 
 /* Media queries for centering images */
