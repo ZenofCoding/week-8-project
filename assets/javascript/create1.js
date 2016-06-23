@@ -98,4 +98,16 @@ $(document).on('ready', function() {
 		}
 	};
 
+	// Listen for a joke clicked and save to local storage
+	$(document).one('click','.panel-default', function() {
+		// Get user selected title and text
+		var title = $(this).children('.panel-heading').text();
+		var text = $(this).children('.panel-body').text();
+		// Save user choice to local storage
+		localStorage.setItem('title', title);
+		localStorage.setItem('text', text);
+		// Redirect to next page
+		window.location.href = 'create2.html';
+	});
+	
 });

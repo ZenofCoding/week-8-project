@@ -1,5 +1,10 @@
 $(document).on('ready', function() {
-	// Start button click
+	// Allows user to press enter for searching
+	$('#step2 .form-control').keypress(function(e){
+    if(e.keyCode==13)
+    $('#search').click();
+  });
+	// Search button click
 	$('#search').on('click',function() {
 		display.input();
 		return false;
@@ -63,14 +68,13 @@ $(document).on('ready', function() {
 			}).done(display.ajaxDone);
 		},
 		ajaxDone: function(response) {
-			console.log(response);
 			var photos = response.photos.photo;
 			var photoURLS = [];
 			// Make pagination
 			display.pagination();
 			// Hide loading div and add pagination
-			$load = $('<div>').hide().append($pagination);
-			$('#pictures').append($load);
+			$load = $('<div>').attr('id','pictures').hide().append($pagination);
+			$('.panel-body').append($load);
 			for (i in photos) {
 				if (photos[i].ispublic === 1) {
 					var farmID = photos[i].farm;
@@ -126,5 +130,15 @@ $(document).on('ready', function() {
 			return $pagination = $('<div>').addClass('text-center').append($ui);
 		}
 	};
+
+	// Listen for a picture clicked and save to local storage
+	$(document).one('click','#pictures img', function() {
+		// Get user selected picture url
+		var url = $(this).attr('src');
+		// Save user choice to local storage
+		localStorage.setItem('url', url);
+		// Redirect to next page
+		window.location.href = 'create3.html';
+	});
 
 });

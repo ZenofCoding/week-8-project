@@ -3,6 +3,7 @@ body {
   width: 100%;
   height: 100%;
   background: #1d1d1d;
+  word-wrap: break-word;
 }
 
 hr {

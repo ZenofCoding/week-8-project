@@ -1,8 +1,16 @@
 $(document).on('ready', function() {
+	// Retrieve title, text, and url
+	var title = localStorage.getItem('title');
+	var text = localStorage.getItem('text');
+	var url = localStorage.getItem('url');
+	// Edit url to show bigger picture
+	var splitURL = url.split('');
+	splitURL.splice(splitURL.length-6, 2);
+	url = splitURL.join('');
 	// Create the image
-	var top = $('<p>').attr('id','top').text('This dog is so cute This dog is so cute This dog is so cute This dog is so cute This dog is so cute ');
-	var bottom = $('<p>').attr('id','bottom').text('It is freaking ridiculous It is freaking ridiculous It is freaking ridiculous It is freaking ridiculous');
-	var img = $('<img>').attr('src','https://farm8.staticflickr.com/7536/27765233411_6e665cb191_n.jpg');
+	var top = $('<p>').attr('id','top').text(title);
+	var bottom = $('<p>').attr('id','bottom').text(text);
+	var img = $('<img>').attr('src', url);
 	var $div = $('<div>').attr('id','image');
 	var width, height;
 	// Put div together
