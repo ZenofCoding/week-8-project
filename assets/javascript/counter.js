@@ -31,7 +31,7 @@
 				  	console.log("# of online users = " + snapshot.numChildren());
 				  });
 
-				// Number of monthly users 
+				// Number of monthly users hi
 				monthlyData.on("value", function(snapshot) {
 					$("#monthly-users").html(snapshot.numChildren());
 				  	console.log("# of monthly users = " + snapshot.numChildren());
