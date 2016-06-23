@@ -76,6 +76,7 @@ a:hover {
 	color: #ffffff;
 	/* Add background color*/
 		background-color:#085FD6;
+		color:#FF69B4;
 	
 }
 
@@ -108,7 +109,7 @@ a:hover {
 .navbar-fixed-top {
 	position: relative;
 	/*Added background color*/
-	background:#2E4053  ;
+	background:#2E4053;
 }
 
 /* Fixes padding around logo */
@@ -174,6 +175,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 h1 {
 	font-size: 3vw;
 	margin-bottom: 10px;
+	/*added color*/
+	color: #00008B;
 }
 
 .btn-default {
@@ -181,7 +184,8 @@ h1 {
 }
 
 .btn-default:hover, .pager li>a:hover, .pager li>a:active, .pager li>a:focus {
-	background: #888888;
+	/*changed background*/
+	background: #00008B;
 	border-color: #888888;
 }
 
