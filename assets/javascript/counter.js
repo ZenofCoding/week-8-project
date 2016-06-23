@@ -37,11 +37,3 @@ connectedData.on("value", function(snapshot) {
 	// Display the number of current online users in the html
 	$("#online-users").html(num);
 });
-
-/*
-// Number of total viewers
-totalViewers.on("value", function(snapshot) {
-	
-});
-
-*/

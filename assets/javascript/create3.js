@@ -48,8 +48,8 @@ $(document).on('ready', function() {
 			$controls.append($font);
 		},
 		fontSize: function($controls) {
-			var $label = $('<label>').addClass('control-label').attr('for','select').text('Font Size');
-			var $input = $('<input>').attr('type','number').attr('name','quantity').attr('min','8').attr('max','30').attr('value','20');
+			var $label = $('<label>').addClass('control-label').attr('for','select').text('Font Size (Between 10-30 px)');
+			var $input = $('<input>').attr('type','number').attr('name','quantity').attr('min','10').attr('max','30').attr('value','20');
 			var $fontSize = $('<div>').attr('id','font-size').append($label).append($input);
 			$controls.append($fontSize);
 		},
@@ -65,13 +65,13 @@ $(document).on('ready', function() {
 		},
 		topText: function($controls) {
 			var $label = $('<label>').addClass('control-label').attr('for','select').text('Top Text Position');
-			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','10').attr('value','0');
+			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','100').attr('value','0');
 			var $topText = $('<div>').attr('id','top-text').append($label).append($input);
 			$controls.append($topText);
 		},
 		bottomText: function($controls) {
 			var $label = $('<label>').addClass('control-label').attr('for','select').text('Bottom Text Position');
-			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','10').attr('value','0');
+			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','100').attr('value','0');
 			var $bottomText = $('<div>').attr('id','bottom-text').append($label).append($input);
 			$controls.append($bottomText);
 		}
@@ -79,4 +79,49 @@ $(document).on('ready', function() {
 
 	// Get image properties after load
 	img.on('load', display.image);
+
+	var changed = {
+		font: function() {
+			// Get font choice
+			var font = $('#select-font option:selected').text();
+			// Update font
+			$('#image>p').css('font-family', font);
+		},
+		fontSize: function() {
+			// Get font size choice
+			var fontSize = $('input[type="number"]').val();
+			// Update font size
+			$('#image>p').css('font-size', fontSize+'px');
+		},
+		fontColor: function() {
+			// Get font color choice
+			var fontColor = $('#select-font-color option:selected').text();
+			// Update font color
+			$('#image>p').css('color', fontColor);
+		},
+		topText: function() {
+			// Get font size choice
+			var topText = $('#top-text input[type="range"]').val();
+			// Update font size
+			$('#top').css('top', topText+'px');
+		}
+		,
+		bottomText: function() {
+			// Get font size choice
+			var bottomText = $('#bottom-text input[type="range"]').val();
+			// Update font size
+			$('#bottom').css('bottom', bottomText+'px');
+		}
+	};
+
+	// Listen for change in font
+	$(document).on('change','#select-font', changed.font);
+	// Listen for change in font-size
+	$(document).on('change','input[type="number"]', changed.fontSize);
+	// Listen for change in font color
+	$(document).on('change','#select-font-color', changed.fontColor);
+	// Listen for change in top text position
+	$(document).on('change','#top-text input[type="range"]', changed.topText);
+	// Listen for change in bottom text position
+	$(document).on('change','#bottom-text input[type="range"]', changed.bottomText);
 });
