@@ -26,12 +26,16 @@ $(document).on('ready', function() {
 			$controls = $('<div>').attr('id','controls');
 			// Selectable fonts
 			var fonts = ['Arial','Arial Black','Georgia','Impact','Tahoma','Times'];
-			// Add fonts
+			// Selectable colors
+			var colors = ['White','Black','Red','Yellow','Purple','Green'];
+			// Add fonts, font size, color
 			display.fonts($controls, fonts);
+			display.fontSize($controls);
+			display.fontColor($controls, colors);
+			display.topText($controls);
+			display.bottomText($controls);
 			// Add controls to page
 			$('.panel-body').append($controls);
-			console.log($controls)
-
 		},
 		fonts: function($controls, fonts) {
 			var $label = $('<label>').addClass('control-label').attr('for','select').text('Font');
@@ -42,47 +46,37 @@ $(document).on('ready', function() {
 			}
 			var $font = $('<div>').attr('id','font').append($label).append($select);
 			$controls.append($font);
+		},
+		fontSize: function($controls) {
+			var $label = $('<label>').addClass('control-label').attr('for','select').text('Font Size');
+			var $input = $('<input>').attr('type','number').attr('name','quantity').attr('min','8').attr('max','30').attr('value','20');
+			var $fontSize = $('<div>').attr('id','font-size').append($label).append($input);
+			$controls.append($fontSize);
+		},
+		fontColor: function($controls, colors) {
+			var $label = $('<label>').addClass('control-label').attr('for','select').text('Font Color');
+			var $select = $('<select>').addClass('form-control').attr('id','select-font-color');
+			for (var i=0; i<colors.length; i++) {
+				$option = $('<option>').text(colors[i]);
+				$select.append($option);
+			}
+			var $fontColor = $('<div>').attr('id','font-color').append($label).append($select);
+			$controls.append($fontColor);
+		},
+		topText: function($controls) {
+			var $label = $('<label>').addClass('control-label').attr('for','select').text('Top Text Position');
+			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','10').attr('value','0');
+			var $topText = $('<div>').attr('id','top-text').append($label).append($input);
+			$controls.append($topText);
+		},
+		bottomText: function($controls) {
+			var $label = $('<label>').addClass('control-label').attr('for','select').text('Bottom Text Position');
+			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','10').attr('value','0');
+			var $bottomText = $('<div>').attr('id','bottom-text').append($label).append($input);
+			$controls.append($bottomText);
 		}
 	}
 
 	// Get image properties after load
 	img.on('load', display.image);
 });
-
-/*
-<div class="form-group">
-	<div id="font">
-	  <label for="select" class="control-label">Font</label>
-	  <select class="form-control" id="select-font">
-	    <option>Arial</option>
-	    <option>Arial Black</option>
-	    <option>Georgia</option>
-	    <option>Impact</option>
-	    <option>Tahoma</option>
-	    <option>Times</option>
-	  </select>
-  </div>
-  <div id="font-size">
-	  <label for="select" class="control-label">Font-size</label>
-	  <input type="number" name="quantity" min="8" max="30" value="20">
-	</div>
-	<div id="font-color">
-	  <label for="select" class="control-label">Font Color</label>
-	  <select class="form-control" id="select-font-color">
-	    <option>White</option>
-	    <option>Black</option>
-	    <option>Red</option>
-	    <option>Yellow</option>
-	    <option>Purple</option>
-	  </select>
-	</div>
-	<div id="top-text">
-	  <label for="select" class="control-label">Top Text Position</label>
-	  <input type="range" name="points" min="0" max="10">
-  </div>
-  <div id="bottom-text">
-	  <label for="select" class="control-label">Bottom Text Position</label>
-	  <input type="range" name="points" min="0" max="10">
-	</div>
-</div>
-*/

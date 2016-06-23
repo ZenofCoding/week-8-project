@@ -221,9 +221,21 @@ h1 {
 }
 
 /* Step 3 */
-#image {
+#image, #step3 .form-group {
 	position: relative;
 	float: left;
+}
+
+#image {
+	margin-right: 20px;
+}
+
+#step3 label {
+	display: block;
+}
+
+#step3 .form-control, #step3 input[type="range"] {
+	width: 20%;
 }
 
 #image>p {
@@ -244,9 +256,4 @@ h1 {
 #bottom {
 	bottom: 0;
 	left: 0;
-}
-
-#step3 .form-group {
-	position: relative;
-	float: left;
 }
