@@ -67,21 +67,22 @@ a:hover {
 .create {
 	padding: 4px 0;
 	padding-right: 15px;
-	color: #FFFFFF  ;
+	color: #FFFFFF;
+
 
 }
 
 .create:hover {
 	color: #ffffff;
 	/* Add background color*/
-	background-color: #0876BF;
+		background-color:#085FD6;
 	
 }
 
 .create>i {
 	vertical-align: middle;
 	color:#ffffff;
-	
+
 }
 
 .create-text {
@@ -129,6 +130,8 @@ a:hover {
   border-bottom-left-radius: 3px;
   border-color: #1d1d1d;
 }
+
+
 
 /* Button Groups */
 .btn-group {
@@ -210,8 +213,10 @@ h1 {
 }
 
 .pagination>li>a:hover, .pagination>li>a:active, .pagination>li>a:focus {
-	background: #888888;
+	/*changed background*/
+	background:#085FD6;
 	border-color: #888888;
+
 }
 
 /* Media queries for centering images */
