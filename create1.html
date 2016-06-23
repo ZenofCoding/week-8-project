@@ -25,7 +25,8 @@
 
   <!--favicon-->
   <link href="./favicon.ico" rel="icon" type="image/x-icon"/>
-
+  
+  <!-- Firebase Link -->
   <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -63,15 +64,15 @@
             </li>
             <li>
               <p class="bold">Online Users</p>
-              <p id="online-users">1,000,000</p>
+              <p id="online-users"></p>
             </li>
-            <!-- Monthly Users -->
+            <!-- Total Viewers -->
             <li>
               <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
             </li>
             <li>
-              <p class="bold">Monthly Users</p>
-              <p id="monthly-users">5,000,000</p>
+              <p class="bold">Total Viewers</p>
+              <p id="total-viewers"></p>
             </li>
           </ul>
           <!-- Create button for desktop -->
@@ -126,8 +127,10 @@
   </div>
   <!-- container -->
   
+  <!-- Online Users and Total Viewers Script -->
+  <script src="./assets/javascript/counter.js"></script>
   <!-- Reddit joke script -->
   <script src="./assets/javascript/create1.js"></script>
-  <script src="./assets/javascript/counter.js"></script>
+  
 </body>
 </html>
