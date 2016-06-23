@@ -102,7 +102,7 @@ $(document).on('ready', function() {
 			var pages = ['\u00AB', '1', '2', '3', '4', '5', '\u00BB'];
 			var $ui = $('<ui>').addClass('pagination');
 			for (var i=0; i<pages.length; i++) {
-				var $a = $('<a>').attr('href','#').text(pages[i]);
+				var $a = $('<a>').attr('href','#page-top').text(pages[i]);
 				var $li = $('<li>');
 				if (pages[i] === '\u00AB') {
 					$li.attr('data-page', 'prev');
