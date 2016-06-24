@@ -18,6 +18,14 @@ $(document).on('ready', function() {
 
 	// Display pictures
 	var display = {
+		selectedJoke: function() {
+			// Retrieve title, text, and url
+			var title = localStorage.getItem('title');
+			var text = localStorage.getItem('text');
+			// Show title and text
+			$('.panel-default .panel-heading').text(title);
+			$('.panel-default .panel-body').text(text);
+		},
 		value: null,
 		input: function() {
 			// Get input
@@ -90,7 +98,7 @@ $(document).on('ready', function() {
 			display.paginationCreate();
 			// Hide loading div and add pagination
 			$load = $('<div>').attr('id','pictures').hide().append($pagination);
-			$('.panel-body').append($load);
+			$('.col-md-10>.panel>.panel-body').append($load);
 			for (i in photos) {
 				if (photos[i].ispublic === 1) {
 					var farmID = photos[i].farm;
@@ -177,6 +185,9 @@ $(document).on('ready', function() {
 			}
 		}
 	};
+
+	// Display selected joke
+	display.selectedJoke();
 
 	// Listen for a picture clicked and save to local storage
 	$(document).one('click','#pictures img', function() {
