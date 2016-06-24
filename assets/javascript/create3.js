@@ -1,4 +1,6 @@
 $(document).on('ready', function() {
+	// Link to Firebase
+	var memes = new Firebase("https://fleddit.firebaseio.com/memes");
 	// Retrieve title, text, and url
 	var title = localStorage.getItem('title');
 	var text = localStorage.getItem('text');
@@ -8,10 +10,10 @@ $(document).on('ready', function() {
 	splitURL.splice(splitURL.length-6, 2);
 	url = splitURL.join('');
 	// Create the image
-	var top = $('<p>').attr('id','top').text(title);
-	var bottom = $('<p>').attr('id','bottom').text(text);
+	var top = $('<p>').addClass('top').text(title);
+	var bottom = $('<p>').addClass('bottom').text(text);
 	var img = $('<img>').attr('src', url);
-	var $div = $('<div>').attr('id','image');
+	var $div = $('<div>').addClass('image');
 	var width, height;
 	// Put div together
 	$div.append(img);
@@ -44,6 +46,9 @@ $(document).on('ready', function() {
 			display.bottomText($controls);
 			// Add controls to page
 			$('.panel-body').append($controls);
+			// Add fleddit button to page
+			$a = $('<a>').addClass('btn btn-default').text('fleddit!');
+			$('.panel-body').append($a);
 		},
 		fonts: function($controls, fonts) {
 			var $label = $('<label>').addClass('control-label').attr('for','select').text('Font');
@@ -93,32 +98,32 @@ $(document).on('ready', function() {
 			// Get font choice
 			var font = $('#select-font option:selected').text();
 			// Update font
-			$('#image>p').css('font-family', font);
+			$('.image>p').css('font-family', font);
 		},
 		fontSize: function() {
 			// Get font size choice
 			var fontSize = $('input[type="number"]').val();
 			// Update font size
-			$('#image>p').css('font-size', fontSize+'px');
+			$('.image>p').css('font-size', fontSize+'px');
 		},
 		fontColor: function() {
 			// Get font color choice
 			var fontColor = $('#select-font-color option:selected').text();
 			// Update font color
-			$('#image>p').css('color', fontColor);
+			$('.image>p').css('color', fontColor);
 		},
 		topText: function() {
 			// Get font size choice
 			var topText = $('#top-text input[type="range"]').val();
 			// Update font size
-			$('#top').css('top', topText+'px');
+			$('.top').css('top', topText+'px');
 		}
 		,
 		bottomText: function() {
 			// Get font size choice
 			var bottomText = $('#bottom-text input[type="range"]').val();
 			// Update font size
-			$('#bottom').css('bottom', bottomText+'px');
+			$('.bottom').css('bottom', bottomText+'px');
 		}
 	};
 
@@ -132,4 +137,27 @@ $(document).on('ready', function() {
 	$(document).on('change','#top-text input[type="range"]', changed.topText);
 	// Listen for change in bottom text position
 	$(document).on('change','#bottom-text input[type="range"]', changed.bottomText);
+
+	// Listen for submittion
+	$(document).on('click','.panel-body a', function() {
+		var $p = $('.image>p');
+		var font = $p.css('font-family');
+		var fontSize = $p.css('font-size');
+		var fontColor = $p.css('color');
+		var topText = $('.top').css('top');
+		var bottomText = $('.bottom').css('bottom');
+		// Save user customizations to firebase
+		memes.push({
+			'url': url,
+			'title': title,
+			'text': text,
+			'font': font,
+			'fontSize': fontSize,
+			'fontColor': fontColor,
+			'topText': topText,
+			'bottomText': bottomText,
+		});
+		// Redirect to next page
+		window.location.href = 'index.html';
+	});
 });

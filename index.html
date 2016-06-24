@@ -26,6 +26,9 @@
   <!--favicon-->
   <link href="./favicon.ico" rel="icon" type="image/x-icon"/>
 
+  <!-- Firebase Link -->
+  <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
     <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -60,16 +63,16 @@
               <i class="fa fa-users fa-2x" aria-hidden="true"></i>
             </li>
             <li>
-              <p class="bold">Online Users</p>
-              <p id="online-users">1,000,000</p>
+              <p class="bold">Current Page Viewers</p>
+              <p id="current-page-viewers"></p>
             </li>
             <!-- Monthly Users -->
             <li>
               <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
             </li>
             <li>
-              <p class="bold">Monthly Users</p>
-              <p id="monthly-users">5,000,000</p>
+              <p class="bold">Total Views</p>
+              <p id="total-views"></p>
             </li>
           </ul>
           <!-- Create button for desktop -->
@@ -112,44 +115,16 @@
       </div>
       <!-- col-md-4 -->
       
-      <div id="top-memes">
-        <!-- Right Meme Content Section -->
-        <div class="col-md-8">
-          <div class="panel">
-            <div class="panel-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut sagittis ante, ac tempus eros. Aenean consectetur enim lorem, ornare maximus elit mattis vel. Nullam maximus elementum placerat. Phasellus eget risus vitae mi bibendum efficitur sit amet sit amet orci. Morbi a massa leo. Cras non velit odio. Donec maximus mattis nisi quis consequat.</p>
-
-              <p>Phasellus lacinia hendrerit ligula, ac suscipit nisl laoreet nec. Cras et massa non ipsum pulvinar aliquam at vulputate mauris. Vivamus posuere tempor velit id volutpat. Cras vehicula mi vel tortor volutpat auctor. Maecenas placerat vitae odio nec finibus. Curabitur fermentum convallis eros nec rutrum. Phasellus mollis placerat magna. Sed nisi tellus, fermentum aliquet maximus ut, vulputate mollis arcu.</p>
-
-              <p>Phasellus malesuada lectus elit, sit amet porttitor erat mollis in. Ut aliquam ipsum vitae efficitur fermentum. Praesent a justo ac dolor ultrices ullamcorper. Fusce sed vehicula eros, eu tincidunt leo. Cras ac faucibus velit. Ut feugiat mi sit amet arcu ornare, et scelerisque lacus auctor. Praesent quis pulvinar purus. Proin nunc quam, aliquet non eros nec, fringilla efficitur justo. In varius auctor turpis, ac rhoncus arcu euismod eu. Suspendisse mi enim, rhoncus et libero ac, lobortis eleifend lectus. Sed rhoncus ultricies erat, eu congue nunc. Aenean gravida mattis dui.</p>
-            </div>
-            <!-- panel-body -->
-          </div>
-          <!-- panel -->
-        </div>
-        <!-- col-md-offset-4 col-md-8 -->
-        <div class="col-md-offset-4 col-md-8">
-          <div class="panel">
-            <div class="panel-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut sagittis ante, ac tempus eros. Aenean consectetur enim lorem, ornare maximus elit mattis vel. Nullam maximus elementum placerat. Phasellus eget risus vitae mi bibendum efficitur sit amet sit amet orci. Morbi a massa leo. Cras non velit odio. Donec maximus mattis nisi quis consequat.</p>
-
-              <p>Phasellus lacinia hendrerit ligula, ac suscipit nisl laoreet nec. Cras et massa non ipsum pulvinar aliquam at vulputate mauris. Vivamus posuere tempor velit id volutpat. Cras vehicula mi vel tortor volutpat auctor. Maecenas placerat vitae odio nec finibus. Curabitur fermentum convallis eros nec rutrum. Phasellus mollis placerat magna. Sed nisi tellus, fermentum aliquet maximus ut, vulputate mollis arcu.</p>
-
-              <p>Phasellus malesuada lectus elit, sit amet porttitor erat mollis in. Ut aliquam ipsum vitae efficitur fermentum. Praesent a justo ac dolor ultrices ullamcorper. Fusce sed vehicula eros, eu tincidunt leo. Cras ac faucibus velit. Ut feugiat mi sit amet arcu ornare, et scelerisque lacus auctor. Praesent quis pulvinar purus. Proin nunc quam, aliquet non eros nec, fringilla efficitur justo. In varius auctor turpis, ac rhoncus arcu euismod eu. Suspendisse mi enim, rhoncus et libero ac, lobortis eleifend lectus. Sed rhoncus ultricies erat, eu congue nunc. Aenean gravida mattis dui.</p>
-            </div>
-            <!-- panel-body -->
-          </div>
-          <!-- panel -->
-        </div>
-        <!-- col-md-offset-4 col-md-8 -->
-      </div>
-      <!-- top-memes -->
+      <div id="recent-memes"></div>
 
     </div>
     <!-- row --> 
 
   </div>
   <!-- container -->
+
+  <!-- Online Users, Total Viewers, and Display Memes Script -->
+  <script src="./assets/javascript/index.js"></script>
 
 </body>
 </html>

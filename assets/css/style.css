@@ -178,6 +178,7 @@ h1 {
 	margin-bottom: 10px;
 	/*added color*/
 	color: #00008B;
+	text-align: center;
 }
 
 .btn-default {
@@ -256,12 +257,12 @@ h1 {
 }
 
 /* Step 3 */
-#image, #step3 .form-group {
+.image, #step3 .form-group {
 	position: relative;
 	float: left;
 }
 
-#image {
+.image {
 	margin-right: 20px;
 }
 
@@ -273,7 +274,7 @@ h1 {
 	width: 20%;
 }
 
-#image>p {
+.image>p {
 	position: absolute;
 	width: 100%;
 	text-align: center;
@@ -284,12 +285,16 @@ h1 {
 	margin: 0;
 }
 
-#top {
+.top {
 	top: 0;
 	left: 0;
 }
 
-#bottom {
+.bottom {
 	bottom: 0;
 	left: 0;
+}
+
+#controls {
+	margin-bottom: 20px;
 }
