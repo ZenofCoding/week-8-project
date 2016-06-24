@@ -1,15 +1,14 @@
 $(document).on('ready', function() {
 	// Allows user to press enter for searching
 	$('#step2 .form-control').keypress(function(e){
-    if(e.keyCode==13)
-    $('#search').click();
+    if (e.keyCode==13)
+    	display.input();
   });
 	// Search button click
 	$('#search').on('click',function() {
 		display.input();
 		return false;
 	});
-
 	// Pagination click
 	$(document).on('click','li',function() {
 		// Save this
@@ -23,15 +22,18 @@ $(document).on('ready', function() {
 		input: function() {
 			// Get input
 			var input = $('#search-input');
-			var value = input.val();
+			var value = input.val().trim();
 			// Save value
 			display.value = value;
 			// Show loading in input
-			input.val('Loading images...');
+			input.val('');
+			input.attr('placeholder','Loading images...');
+			// Change border color back
+			$('#step2 .form-control').css('border-color','');
 			// Clear pictures
-			$('#pictures').empty();
+			$('#pictures').remove();
 			// Start query
-			display.queryString(value);
+			display.queryString(value, true);
 		},
 		getPage: function($this) {
 			var noClick = $this.attr('class');
@@ -44,34 +46,48 @@ $(document).on('ready', function() {
 				} else {
 					display.page = Number(page);
 				}
+				// Pagination update
+				display.paginationUpdate(display.page);
 				// Show loading in input
-				$('#search-input').val('Loading images...');
-				// Clear pictures
-				$('#pictures').empty();
+				var input = $('#search-input');
+				input.val('');
+				input.attr('placeholder','Loading images...');
 				// Start query
-				display.queryString(display.value);
+				display.queryString(display.value, false);
 			}
 		},
 		apiKey: '96ded4dd9f53989e6fb829fa7a5e6b9e',
 		perPage: 20,
 		page: 1,
 		queryURL:'',
-		queryString: function(value) {
+		queryString: function(value, firstLoad) {
 			var value = encodeURIComponent(value).replace(/%20/g, '+');
 			queryURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + display.apiKey + '&tags=' + value + '&per_page=' + display.perPage + '&page=' + display.page +'&format=json&nojsoncallback=1';
-			display.ajaxCall();
+			display.ajaxCall(firstLoad);
 		},
-		ajaxCall: function() {
+		ajaxCall: function(firstLoad) {
 			$.ajax({
 				url: queryURL,
 				method: 'GET'
-			}).done(display.ajaxDone);
+			}).done(function(response) {
+				var photos = response.photos.photo;
+				// Check if search has no response
+				if (photos.length === 0) {
+					// Change border color to red
+					$('#step2 .form-control').css('border-color','red');
+					// No results
+					$('#search-input').attr('placeholder','No results. Please search again.');
+				}
+				if (firstLoad) {
+					display.firstLoad(photos);
+				} else {
+					display.load(photos);
+				}
+			});
 		},
-		ajaxDone: function(response) {
-			var photos = response.photos.photo;
-			var photoURLS = [];
+		firstLoad: function(photos) {
 			// Make pagination
-			display.pagination();
+			display.paginationCreate();
 			// Hide loading div and add pagination
 			$load = $('<div>').attr('id','pictures').hide().append($pagination);
 			$('.panel-body').append($load);
@@ -83,16 +99,14 @@ $(document).on('ready', function() {
 					var secret = photos[i].secret;
 					var size = 'q';
 					var URL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + ID + '_' + secret + '_' + size +'.jpg'
-					$img = $('<img>').attr('src', URL);
+					$img = $('<img>').attr('src', URL).attr('id', i);
 					// Append each image to the dom to load
 					$load.append($img);
 					// Wait for last image to load then show
 					if (i == display.perPage-1) {
 						$img.on('load', function() {
-							// Add pagination to end
-							$pagination.clone().appendTo($load);
 							// Clear input
-							$('#search-input').val('');
+							$('#search-input').attr('placeholder','Search flickr');
 							// Show photos
 							$load.show();
 							// Scroll to top of page
@@ -101,8 +115,26 @@ $(document).on('ready', function() {
 					}
 				}
 			}
+			// Add pagination to end
+			$pagination.clone().appendTo($load);
 		},
-		pagination: function() {
+		load: function(photos) {
+			for (i in photos) {
+				if (photos[i].ispublic === 1) {
+					var farmID = photos[i].farm;
+					var serverID = photos[i].server;
+					var ID = photos[i].id;
+					var secret = photos[i].secret;
+					var size = 'q';
+					var URL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + ID + '_' + secret + '_' + size +'.jpg'
+					// Find each img url and replace with new URL
+					$('#' + i).attr('src', URL);
+					// Scroll to top of page
+					window.scrollTo(0,0);
+				}
+			}
+		},
+		paginationCreate: function() {
 			var pages = ['\u00AB', '1', '2', '3', '4', '5', '\u00BB'];
 			var $ui = $('<ui>').addClass('pagination');
 			for (var i=0; i<pages.length; i++) {
@@ -128,6 +160,21 @@ $(document).on('ready', function() {
 				$ui.append($li);
 			}
 			return $pagination = $('<div>').addClass('text-center').append($ui);
+		},
+		paginationUpdate: function(page) {
+			// Remove disabled and active from all pages
+			$('.pagination>*').removeClass('disabled').removeClass('active');
+			// Add active class to current page
+			var num = page+1; // Account for back page
+			$('.pagination>li:nth-child(' + num + ')').addClass('active');
+			// Disable prev if page 1
+			if (page === 1) {
+				$('.pagination>li:nth-child(1)').addClass('disabled');
+			}
+			// Disable next if page 5
+			if (page === 5) {
+				$('.pagination>li:nth-child(7)').addClass('disabled');
+			}
 		}
 	};
 

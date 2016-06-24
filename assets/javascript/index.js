@@ -79,31 +79,32 @@ $(document).on('ready', function() {
 			$('#' + key + ' .bottom').css('bottom', bottomText);
 		});
 		// Add div to panel body
-		$panelBody = $('<div>').addClass('panel-body');
+		var $panelBody = $('<div>').addClass('panel-body');
 		$panelBody.append($div);
 		// Add panel body to panel
-		$panel = $('<div>').addClass('panel');
+		var $panel = $('<div>').addClass('panel');
 		$panel.append($panelBody);
-		// Add panel to bootstrap col
-		$col = $('<div>').addClass('col-md-offset-4 col-md-8');
-		$col.append($panel);
-		// Add col to recent memes
-		$('#recent-memes').prepend($col);
+		var $col = $('<div>');
 		// Get length
 		memes.once('value', function(snapshot) {
 			// Incremement count
 			count++;
 			// Find number of memes
 			var numOfMemes = snapshot.numChildren();
-			if (count === numOfMemes) {
-				$('.col-md-offset-4.col-md-8:first-child').attr('class','col-md-8');
-				// Add header to recent memes
-				var $h1 = $('<h1>').text('Recently Created Memes');
-				var $col = $('<div>').addClass('col-md-8');
-				$col.append($h1);
-				$('#recent-memes').prepend($col);
+			if (count === 1) {
+				// Add panel to bootstrap col
+				var $p= $('<p>').addClass('bold black').text('Recently Created Memes');
+				var $hr = $('<hr>');
+				$panelBody.prepend($hr).prepend($p);
+				$col.addClass('col-md-8').append($panel);
+			} else {
+				// Add panel to bootstrap col
+				$col.addClass('col-md-offset-4 col-md-8').append($panel);
 			}
+			// Add col to recent memes
+			$('#recent-memes').append($col);
 		});
+		
 	});
 
 });
