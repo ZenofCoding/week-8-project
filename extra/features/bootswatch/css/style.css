@@ -1,0 +1,32 @@
+.panel-primary>.panel-heading {
+background-color: #ff00ff;
+border-color: #ff00ff;
+}
+
+.panel-primary {
+border-color: #ff00ff;
+}
+
+
+.panel-danger>.panel-heading {
+background-color: #3333ff;
+border-color: #3333ff;
+}
+
+.panel-danger{
+border-color: #3333ff;
+}
+
+.panel-body {
+	background-color: white;
+	border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+h2 {
+	text-align: center;
+	padding: 2vw;
+}
+

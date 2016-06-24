@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" id="page-top">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Fleddit</title>
+
+  <!-- jQuery -->
+  <script src="./assets/javascript/jquery-2.2.4.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="./assets/javascript/bootstrap.min.js"></script>
+
+  <!-- Reset CSS -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+  <!-- Cyborg Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/cyborg-bootstrap.min.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/font-awesome.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+  <!--favicon-->
+  <link href="./favicon.ico" rel="icon" type="image/x-icon"/>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+    <script src="../bower_components/respond/dest/respond.min.js"></script>
+  <![endif]-->
+  
+</head>
+
+<body>
+
+  <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- fleddit logo -->
+        <div class="navbar-header">
+          <a href="./index.html" class="navbar-brand">
+            <img src="./assets/images/fledditLogo.png">
+          </a>
+          <!-- Create button for mobile and tablet -->
+          <a class="navbar-toggle" href="./create1.html">
+            <div class="create">
+              <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i> 
+              <span class="create-text">Create</span>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Collapsable desktop elements -->
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <!-- Create button for desktop -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="./create1.html">
+                <div class="create">
+                  <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i> 
+                  <span class="create-text">Create</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- navbar-collapse collapse -->
+      </div>
+      <!-- container -->
+    </div>
+    <!-- navbar navbar-default navbar-fixed-top -->
+
+  <!-- Content -->
+  <div class="container" id="margin">
+    <div class="row">
+      <div id="step2">        
+        <div class="col-md-offset-1 col-md-10">
+          <div class="btn-group btn-group-justified">
+            <a href="#" class="btn btn-default disabled"><span class="bold">Step 1:</span> Choose a Reddit Joke</a>
+            <a href="#" class="btn btn-default disabled active"><span class="bold">Step 2:</span> Choose a Flickr Image</a>
+            <a href="#" class="btn btn-default disabled"><span class="bold">Step 3:</span> Finalize Your Meme</a>
+          </div>
+          <div class="panel">
+            <div class="panel-body">
+              <h2>Selected Joke:</h2>
+              <div class="panel panel-default">
+                <div class="panel-heading"></div>
+                <div class="panel-body"></div>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" placeholder="Search flickr" id="search-input">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" id="search">Submit</button>
+                </span>
+              </div>
+            </div>
+            <!-- panel-body -->
+          </div>
+          <!-- panel -->
+        </div>
+        <!-- col-md-offset-1 col-md-10 -->
+      </div>
+      <!-- step2 -->
+    </div>
+    <!-- row --> 
+
+  </div>
+  <!-- container -->
+
+  <!-- Flickr image script -->
+  <script src="./assets/javascript/create2.js"></script>
+
+</body>
+</html>

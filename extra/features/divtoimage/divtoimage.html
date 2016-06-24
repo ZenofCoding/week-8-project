@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Div to Image</title>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!-- html2canvas -->
+	<script src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js"></script>
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/divtoimage.css">
+</head>
+<body>
+	<div id="image">
+		<!--<img src="https://farm8.staticflickr.com/7116/27719688611_c7d5ae863a_n.jpg">-->
+		<img crossOrigin="Anonymous" src="./assets/images/dog.jpg">
+		<p class="top">A dog's life</p>
+		<p class="bottom">Is the best life</p>
+	</div>
+	<input type="button" id="btnSave" value="Save PNG"/>
+	<div id="image-out"></div>
+	<!-- Custom Script -->
+	<script src="assets/javascript/divtoimage.js"></script>
+</body>
+</html>
