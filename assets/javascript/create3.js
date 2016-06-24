@@ -37,7 +37,7 @@ $(document).on('ready', function() {
 			// Selectable fonts
 			var fonts = ['Arial','Arial Black','Georgia','Impact','Tahoma','Times'];
 			// Selectable colors
-			var colors = ['White','Black','Red','Yellow','Purple','Green'];
+			var colors = ['White','Black','Red','Yellow','Purple','Green','Blue','Orange','SlateGray','Maroon','SaddleBrown','HotPink'];
 			// Add fonts, font size, color
 			display.fonts($controls, fonts);
 			display.fontSize($controls);
@@ -61,8 +61,8 @@ $(document).on('ready', function() {
 			$controls.append($font);
 		},
 		fontSize: function($controls) {
-			var $label = $('<label>').addClass('control-label').attr('for','select').text('Font Size (Between 10-30 px)');
-			var $input = $('<input>').attr('type','number').attr('name','quantity').attr('min','10').attr('max','30').attr('value','20');
+			var $label = $('<label>').addClass('control-label').attr('for','select').text('Font Size (Between 10-100 px)');
+			var $input = $('<input>').attr('type','number').attr('name','quantity').attr('min','10').attr('max','100').attr('value','20');
 			var $fontSize = $('<div>').attr('id','font-size').append($label).append($input);
 			$controls.append($fontSize);
 		},
@@ -78,13 +78,13 @@ $(document).on('ready', function() {
 		},
 		topText: function($controls) {
 			var $label = $('<label>').addClass('control-label').attr('for','select').text('Top Text Position');
-			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','100').attr('value','0');
+			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','300').attr('value','0');
 			var $topText = $('<div>').attr('id','top-text').append($label).append($input);
 			$controls.append($topText);
 		},
 		bottomText: function($controls) {
 			var $label = $('<label>').addClass('control-label').attr('for','select').text('Bottom Text Position');
-			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','100').attr('value','0');
+			var $input = $('<input>').attr('type','range').attr('name','point').attr('min','0').attr('max','300').attr('value','0');
 			var $bottomText = $('<div>').attr('id','bottom-text').append($label).append($input);
 			$controls.append($bottomText);
 		}

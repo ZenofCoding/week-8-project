@@ -49,6 +49,7 @@ $(document).on('ready', function() {
 		ajaxDone: function(response) {
 			// Collect data
 			var data = response.data.children;
+			console.log(data)
 			var $content = $('<div>');
 			for (i in data) {
 				// Get title and text data
