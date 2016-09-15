@@ -1,8 +1,8 @@
 # fleddit
 Week 8 project for Rutgers Coding Bootcamp.
 
-LIVE PREVIEW --> https://fleddit.firebaseapp.com/
-VIDEO PRESENTATION --> https://www.youtube.com/watch?v=QpkZLEkNlGg
+* LIVE PREVIEW --> https://fleddit.firebaseapp.com/
+* VIDEO PRESENTATION --> https://www.youtube.com/watch?v=QpkZLEkNlGg
 
 ## Screenshots
 
